@@ -8,7 +8,7 @@
 typedef struct s_string_array
 {
     int size;
-    char** array;
+    char **array;
 } string_array;
 #endif
 
@@ -17,24 +17,21 @@ typedef struct s_string_array
 typedef struct s_integer_array
 {
     int size;
-    int* array;
+    int *array;
 } integer_array;
 #endif
 
-
-integer_array* my_count_on_it(string_array* param_1)
-{   
-    //declare pointer
+integer_array *my_count_on_it(string_array *param_1)
+{
+    // declare pointer
     integer_array *s_arr;
     // allocate size according to size of array
-    
-    int index = 0;
+
     // iterate over array
-    for(int i = 0; i < param_1->size; i++){
+    for (int i = 0; i < param_1->size; i++)
+    {
         s_arr->array[i] = strlen(param_1->array[i]);
     }
 
     return s_arr;
-   
-}   
-
+}
