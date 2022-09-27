@@ -31,7 +31,11 @@ integer_array *my_count_on_it(string_array *p1)
 
     for (int i = 0; i < p1->size; i++)
     {
-        pusher->array[i] = strlen(p1->array[i]);
+        int j;
+        // pusher->array[i] = strlen(p1->array[i]);
+        for (j = 0; p1->array[i][j] != '\0'; j++)
+            ;
+        pusher->array[i] = j;
     }
     return pusher;
 }
