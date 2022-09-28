@@ -12,6 +12,7 @@ typedef struct s_string_array
 } string_array;
 #endif
 
+// get size to allocate memory for the new array
 int get_size(string_array *param_1, char *param_2)
 {
   int cc = 0;
@@ -20,6 +21,18 @@ int get_size(string_array *param_1, char *param_2)
     cc += (int)(strlen(param_1->array[i]) + strlen(param_2));
   }
   return cc;
+}
+
+char *my_strncat(char *dest, char *src, int nb)
+{
+  int i = 0;
+  int len = strlen(dest);
+  while (i < nb && src[i])
+  {
+    dest[len + i] = src[i];
+    i++;
+  }
+  return dest;
 }
 
 char *my_join(string_array *param_1, char *param_2)
@@ -35,30 +48,11 @@ char *my_join(string_array *param_1, char *param_2)
     int str_size = (int)(strlen(param_1->array[i]) + strlen(param_2));
     char *str = malloc(str_size);
     *str = 0;
-    int j;
-    for (j = 0; j < str_size; j++)
-    {
-      str[j] += param_1->array[i][j];
-    }
+    my_strncat(str, param_1->array[i], str_size);
 
-    int current_size = strlen(result);
-    int k = 0;
-
-    while (k < str_size && str[k])
-    {
-      result[current_size + k] = str[k];
-      k++;
-    }
-    if (i + 1 < param_1->size)
-    {
-      int x = 0;
-      while (x < strlen(param_2))
-      {
-        result[current_size + k] = param_2[x];
-        x++;
-        k++;
-      }
-    }
+    my_strncat(result, str, str_size);
+    if (i < param_1->size - 1)
+      my_strncat(result, param_2, strlen(param_2));
   }
 
   return result;
