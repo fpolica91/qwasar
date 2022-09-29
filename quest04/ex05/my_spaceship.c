@@ -9,6 +9,7 @@ typedef struct
   int y;
   char xdir;
   char ydir;
+  char *direction;
 } spaceship;
 
 char *my_spaceship(char *param_1)
@@ -16,6 +17,7 @@ char *my_spaceship(char *param_1)
   int len = strlen(param_1);
   // integer_array *pusher = (integer_array *)malloc(sizeof(integer_array));
   spaceship *ship = (spaceship *)malloc(sizeof(spaceship));
+  ship->direction = malloc(sizeof(char) * 5);
 
   char *result = malloc(sizeof(char) * 100);
   *ship = (spaceship){0, 0, 'N', 'U'};
@@ -70,6 +72,8 @@ char *my_spaceship(char *param_1)
     }
   }
   char dir[5];
+  // ship->direction = "up";
+  // printf("direction -> %s", ship->direction);
   if (ship->ydir == 'D')
   {
     strcpy(dir, "down");
