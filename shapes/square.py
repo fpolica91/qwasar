@@ -1,18 +1,36 @@
-def square(sides):
-  for k in range(sides):
-    for j in range(sides):
-      #  when k is zero we print the top horizontal line after the initial 0
-      #  when k == sides - 1 we print the bottom horizontal line
-      #  when j = 0 we print the left vertical line
-      #  when j == sides - 1 we print the right vertical line
-      if (k == 0 or k == sides - 1 or j == 0 or j == sides-1):
-          print(j, end='  ') 
-      else:
-        # we print spaces for the interior of the square
-        print(' ', end = '  ')
+
+def empty_space_col(j,n):
+  if j == 0 or j == n-1:
+    return False
+  return True
+
+def empty_space_row(i, n):
+  if i == 0 or i == n -1:
+    return False
+  return True
+
+def build(j, i, n):
+  if empty_space_row(i,n) == False or empty_space_col(j,n) == False:
+    print("*", end='')
+  else:
+    print(" ", end='')
+    
+
+
+
+
+def square(n):
+  # the top row is created by i at 0
+  # the bottom row is created by i being == n-1
+  # the right colum is created by j being == n -1
+  # the left column is created by j being == 0
+  for i in range(n):
+    for j in range(n):
+      build(j ,i, n)
+    # ensures starts print below each other
     print()
-
-
+    
+  
     
 
 
@@ -20,10 +38,3 @@ def square(sides):
 
 if __name__ == '__main__':
     square(5)
-
-
-
-    # *
-    # **
-    # ***
-    # ****

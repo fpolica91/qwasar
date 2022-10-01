@@ -22,7 +22,7 @@ def upside(n):
     print()
 
 
-def arrow(n):
+def right_arrow(n):
   for i in range(n):
     for _ in range(i):
       print("*", end='')
@@ -34,7 +34,7 @@ def arrow(n):
       print("*", end='')
     print()
 
-def rev_arrow(n):
+def left_arrow(n):
   for i in range(n):
     for _ in range(n-i):
       print(" ", end='')
@@ -57,7 +57,7 @@ def rev_arrow(n):
 
 
 if __name__ == '__main__':
-  rev_arrow(6)
+  left_arrow(6)
   # left(6)
   # right(6)
   # upside(6)
