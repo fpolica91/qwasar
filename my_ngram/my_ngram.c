@@ -8,7 +8,7 @@ int main(int argc, char **argv)
 {
   char letters[5] = "aacde";
   Map *map = createMap(5);
-  for (int i = 0; i < 5; i++)
+  for (int i = 0; i <= 5; i++)
   {
     char key = letters[i];
     int index = peep(map, &key);
