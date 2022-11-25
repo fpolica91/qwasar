@@ -7,8 +7,8 @@
 #include <string.h>
 
 int my_printf(char *restrict format, ...);
+char *transform(long long num, char *hash, int base);
 int print_characters(char *arg);
 int print_number(int arg);
-char *transform(long long num, char *hash, int base);
 
 #endif

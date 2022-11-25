@@ -1,9 +1,9 @@
 # -*- Makefile -*-
 
 CC = gcc
-CFLAGS += -Wall -Wextra -Werror
+# CFLAGS += -Wall -Wextra -Werror
 LINKERFLAG = -lm
-SOURCES = my_printf.c my_printf.h print_functions.c
+SOURCES = my_printf.c my_printf.h print_functions.c transform.c
 OBJECTS = $(SOURCES: .c=.o)
 TARGET = my_printf
 

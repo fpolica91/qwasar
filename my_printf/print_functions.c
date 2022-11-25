@@ -7,6 +7,7 @@ int my_printf(char *restrict format, ...)
   int len = 0;
   int argument;
   char *str;
+  void *v_pointer;
   va_start(arg, format);
   for (iter = format; *iter != '\0'; iter++)
   {
@@ -40,9 +41,13 @@ int my_printf(char *restrict format, ...)
         print_number(argument);
         break;
       case 'p':
-        void *p = va_arg(arg, void *);
+        v_pointer = va_arg(arg, void *);
         char *hash = "0123456789abcdef";
-        transform((long long)p, hash, 16);
+        transform((long long)v_pointer, hash, 16);
+        char *hex_string = calloc((strlen(hash) + 2), sizeof(int));
+        strcpy(hex_string, "0x");
+        strcat(hex_string, hash);
+        len += print_characters(hex_string);
         break;
       }
     }
