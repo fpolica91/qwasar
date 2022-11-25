@@ -41,7 +41,8 @@ int my_printf(char *restrict format, ...)
         break;
       case 'p':
         void *p = va_arg(arg, void *);
-        char *base = "0123456789abcdef";
+        char *hash = "0123456789abcdef";
+        transform((long long)p, hash, 16);
         break;
       }
     }
