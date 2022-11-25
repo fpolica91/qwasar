@@ -48,6 +48,9 @@ int my_printf(char *restrict format, ...)
         strcpy(hex_string, "0x");
         strcat(hex_string, hash);
         len += print_characters(hex_string);
+        free(hex_string);
+        free(hash);
+
         break;
       }
     }
